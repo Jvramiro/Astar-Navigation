@@ -4,16 +4,16 @@ using UnityEngine;
 
 namespace Pathfinding{
     public class AStarAgent2D : AStarAgent{
-
-        private List<Vector2Int> ignore = new List<Vector2Int>();
         private List<Vector2Int> path = new List<Vector2Int>();
 
-        public void Setup(Vector2Int destination){
-            Setup(Vector2Int.RoundToInt(transform.position), destination);
+        public void Setup(Vector2Int destination, List<Vector2Int> ignore = null){
+            Setup(Vector2Int.RoundToInt(transform.position), destination, ignore);
         }
 
-        public void Setup(Vector2Int start, Vector2Int destination){
-            path = AStarPathfinding.FindPath(start, destination, ignore, allowDiagonal);
+        public void Setup(Vector2Int start, Vector2Int destination, List<Vector2Int> ignore = null){
+            List<Vector2Int> _ignore = ignore ?? new List<Vector2Int>();
+            path = AStarPathfinding.FindPath(start, destination, _ignore, allowDiagonal);
+
             if(path != null && path.Count > 0){
                 StartMovement();
             }

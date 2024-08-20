@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Pathfinding;
 using UnityEngine;
 
@@ -5,6 +6,9 @@ public class AStarAgent3DExample : MonoBehaviour
 {
     [SerializeField] AStarAgent3D agent;
     [SerializeField] Vector3Int destination;
+
+    [Tooltip("Obstacle points or positions to avoid")]
+    [SerializeField] List<Vector3> pointsToIgnore;
     Vector3Int startPosition, startRotation;
     bool waitingReset;
 
@@ -19,7 +23,7 @@ public class AStarAgent3DExample : MonoBehaviour
     }
     public void Setup(){
         if(!waitingReset){
-            agent.Setup(destination);
+            agent.Setup(destination, pointsToIgnore);
             waitingReset = true;
         }
     }

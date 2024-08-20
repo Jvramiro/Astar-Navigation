@@ -4,32 +4,26 @@ using Pathfinding;
 using UnityEngine;
 
 namespace Pathfinding{
-    public class AStarAgent3D : AStarAgent
-    {
+    public class AStarAgent3D : AStarAgent{
         public float rotation;
         enum Layout {XYZ, XZY, YXZ, YZX, ZXY, ZYX}
         [SerializeField] Layout layout = Layout.XZY;
 
-        private List<Vector3> ignore = new List<Vector3>();
         private List<Vector3> path = new List<Vector3>();
 
-        public void Setup(Vector3Int destination){
-            Setup(Vector3Int.RoundToInt(transform.position), destination);
+        public void Setup(Vector3Int destination, List<Vector3> ignore = null){
+            Setup(Vector3Int.RoundToInt(transform.position), destination, ignore);
         }
 
-        void FixedUpdate(){
-            if(isMoving){
-                Move();
-            }
-        }
-
-        public void Setup(Vector3Int start, Vector3Int destination){
+        public void Setup(Vector3Int start, Vector3Int destination, List<Vector3> ignore = null){
             Vector2Int _start = GetVector2Int(start);
             Vector2Int _destination = GetVector2Int(destination);
 
             List<Vector2Int> _ignore = new List<Vector2Int>();
-            foreach(Vector3 vector in ignore){
-                _ignore.Add(GetVector2Int(Vector3Int.RoundToInt(vector)));
+            if(ignore != null && ignore.Count > 0){
+                foreach(Vector3 vector in ignore){
+                    _ignore.Add(GetVector2Int(Vector3Int.RoundToInt(vector)));
+                }
             }
 
             List<Vector2Int> _path = AStarPathfinding.FindPath(_start, _destination, _ignore, allowDiagonal);
@@ -39,6 +33,12 @@ namespace Pathfinding{
 
             if(path != null && path.Count > 0){
                 StartMovement();
+            }
+        }
+
+        void FixedUpdate(){
+            if(isMoving){
+                Move();
             }
         }
 
