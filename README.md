@@ -28,7 +28,8 @@ You can add an Agent directly to the object you are going to move.
 
 You can edit the parameters of your Agent, such as speed and rotation speed.
 
-You must, through your script, call the Setup function with the starting position and destination of the movement. The starting position is an optional parameter; if you don't add it, it searches for the current position of the object.
+You must, through your script, call the Setup function with the starting position (optional) and destination of the movement.
+There is an optional third argument "ignore", a list of positions that Pathfinding should ignore or consider obstacles.
 
 You can use your script to subscribe to the OnMovementStart, OnMovementStop and OnAgentReached events.
 
