@@ -9,7 +9,9 @@ The Pathfinding Navigation Package is a Unity package designed to provide A* pat
 This package was first developed for a project in which a 3D object moves on a 2D Tilemap. The Tilemap is on the ground and the object moves in the X and Z axis. In this project, an intermediate script sends the start position, end position and a list of obstacle positions for the package to get the best path.
 
 This package ignores one of the 3D axes. Because it uses a two-axis grid pathfinding algorithm, it does not generate a path for all three axes.
+
 This package uses Vector2Int and Vector3Int for locomotion.
+
 This package was developed in version 2021.3.x.
 
 ## Getting Started
