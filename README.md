@@ -17,7 +17,7 @@ This package was developed in version 2021.3.x.
 ### Installation
 
 1. Download the package and import it into your Unity project through the link:
-  https://github.com/Jvramiro/Astar-Navigation.git
+- https://github.com/Jvramiro/Astar-Navigation.git
 2. Ensure that no errors occur for reasons of incompatibility.
 
 ### Usage
