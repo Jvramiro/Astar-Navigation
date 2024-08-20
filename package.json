@@ -1,0 +1,19 @@
+{
+    "name": "com.jvramiro.astarnavigation",
+    "version": "0.1.0",
+    "displayName": "AstarNavigation",
+    "description": "A Unity package providing A* pathfinding and ready-to-use scripts for agent navigation with public parameters and callbacks, supporting both 2D and 3D environments.",
+    "unity": "2021.3",
+    "unityRelease": "5f1",
+    "documentationUrl": "",
+    "changelogUrl": "",
+    "licensesUrl": "",
+    "dependencies": {},
+    "keywords": [
+    "pathfinding", "A*", "navigation", "agent", "movement"
+    ],
+    "author": {
+      "name": "João Victor Ramiro",
+      "url": "https://homeostasestudio.com/"
+    }
+  }
